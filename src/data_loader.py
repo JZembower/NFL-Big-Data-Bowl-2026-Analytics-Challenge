@@ -119,30 +119,103 @@ class NFLDataLoader:
         
         return merged_df
     
-    def normalize_coordinates(self, df: pd.DataFrame) -> pd.DataFrame:
+    def normalize_coordinates(self, input_df: pd.DataFrame) -> pd.DataFrame:
         """Normalize coordinates based on play direction"""
-        if not self.config['processing']['normalize_by_play_direction']:
-            return df
-        
         logger.info("Normalizing coordinates by play direction...")
-        
-        # Create a copy to avoid modifying original
-        df = df.copy()
-        
-        # Flip x coordinates for plays going right
-        right_plays = df['play_direction'] == 'right'
-        df.loc[right_plays, 'x'] = 120 - df.loc[right_plays, 'x']
-        df.loc[right_plays, 'ball_land_x'] = 120 - df.loc[right_plays, 'ball_land_x']
-        
-        # Flip direction angles for plays going right
-        df.loc[right_plays, 'dir'] = (df.loc[right_plays, 'dir'] + 180) % 360
-        df.loc[right_plays, 'o'] = (df.loc[right_plays, 'o'] + 180) % 360
-        
-        # Set all plays to 'left' direction after normalization
-        df['play_direction'] = 'left'
-        
+    
+        df = input_df.copy()
+    
+        # For plays going left, flip x coordinates
+        left_mask = df['play_direction'].str.lower() == 'left'
+        df.loc[left_mask, 'x'] = 120 - df.loc[left_mask, 'x']
+        df.loc[left_mask, 'y'] = 53.3 - df.loc[left_mask, 'y']
+        df.loc[left_mask, 'dir'] = (df.loc[left_mask, 'dir'] + 180) % 360
+        df.loc[left_mask, 'o'] = (df.loc[left_mask, 'o'] + 180) % 360
+    
+        # Normalize ball landing coordinates
+        if 'ball_land_x' in df.columns:
+            df.loc[left_mask, 'ball_land_x'] = 120 - df.loc[left_mask, 'ball_land_x']
+            df.loc[left_mask, 'ball_land_y'] = 53.3 - df.loc[left_mask, 'ball_land_y']
+    
         logger.info("Coordinate normalization complete")
-        
+    
+        return df
+
+    def encode_categorical_features(self, df: pd.DataFrame) -> pd.DataFrame:
+        """Encode categorical features"""
+        logger.info("Encoding categorical features...")
+    
+        # Binary encodings
+        df['play_direction_left'] = (df['play_direction'] == 'left').astype(int)
+        df['player_side_offense'] = (df['player_side'].str.lower() == 'offense').astype(int)
+        df['play_action_true'] = df['play_action'].fillna(False).infer_objects(copy=False).astype(int)
+    
+        # One-hot encode player role
+        if 'player_role' in df.columns:
+            role_dummies = pd.get_dummies(df['player_role'], prefix='role', dtype=int)
+            df = pd.concat([df, role_dummies], axis=1)
+    
+        # One-hot encode player position
+        if 'player_position' in df.columns:
+            pos_dummies = pd.get_dummies(df['player_position'], prefix='pos', dtype=int)
+            df = pd.concat([df, pos_dummies], axis=1)
+    
+        # One-hot encode pass result
+        if 'pass_result' in df.columns:
+            pass_dummies = pd.get_dummies(df['pass_result'], prefix='pass_result', dtype=int)
+            df = pd.concat([df, pass_dummies], axis=1)
+    
+        # One-hot encode offense formation
+        if 'offense_formation' in df.columns:
+            formation_dummies = pd.get_dummies(df['offense_formation'], prefix='formation', dtype=int)
+            df = pd.concat([df, formation_dummies], axis=1)
+    
+        # One-hot encode receiver alignment
+        if 'receiver_alignment' in df.columns:
+            alignment_dummies = pd.get_dummies(df['receiver_alignment'], prefix='alignment', dtype=int)
+            df = pd.concat([df, alignment_dummies], axis=1)
+    
+        # One-hot encode route
+        if 'route_of_targeted_receiver' in df.columns:
+            route_dummies = pd.get_dummies(df['route_of_targeted_receiver'], prefix='route', dtype=int)
+            df = pd.concat([df, route_dummies], axis=1)
+    
+        # One-hot encode dropback type
+        if 'dropback_type' in df.columns:
+            dropback_dummies = pd.get_dummies(df['dropback_type'], prefix='dropback', dtype=int)
+            df = pd.concat([df, dropback_dummies], axis=1)
+    
+        # One-hot encode pass location
+        if 'pass_location_type' in df.columns:
+            location_dummies = pd.get_dummies(df['pass_location_type'], prefix='pass_loc', dtype=int)
+            df = pd.concat([df, location_dummies], axis=1)
+    
+        # One-hot encode coverage type
+        if 'team_coverage_man_zone' in df.columns:
+            coverage_mz_dummies = pd.get_dummies(df['team_coverage_man_zone'], prefix='coverage_mz', dtype=int)
+            df = pd.concat([df, coverage_mz_dummies], axis=1)
+    
+        if 'team_coverage_type' in df.columns:
+            coverage_type_dummies = pd.get_dummies(df['team_coverage_type'], prefix='coverage_type', dtype=int)
+            df = pd.concat([df, coverage_type_dummies], axis=1)
+    
+        # Parse player height to inches
+        if 'player_height' in df.columns:
+            def height_to_inches(height_str):
+                try:
+                    feet, inches = height_str.split('-')
+                    return int(feet) * 12 + int(inches)
+                except ValueError:
+                    return np.nan
+            df['player_height_inches'] = df['player_height'].dropna().apply(height_to_inches)
+    
+        # Parse birth date to age (approximate)
+        if 'player_birth_date' in df.columns:
+            df['player_birth_date'] = pd.to_datetime(df['player_birth_date'], errors='coerce')
+            df['player_age_days'] = (pd.Timestamp('2023-01-01') - df['player_birth_date']).dt.days
+    
+        logger.info(f"Categorical encoding complete. New shape: {df.shape}")
+    
         return df
     
     def create_train_val_test_splits(self, 

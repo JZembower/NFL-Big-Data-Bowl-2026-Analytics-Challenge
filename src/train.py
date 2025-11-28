@@ -46,40 +46,43 @@ class TrainingPipeline:
         logger.info("="*80)
         logger.info("STEP 1: DATA PREPARATION")
         logger.info("="*80)
-        
+    
         processed_file = Path(self.config['data']['processed_dir']) / "input_processed.parquet"
-        
+    
         if processed_file.exists() and not force_reload:
             logger.info("Loading existing processed data...")
             input_df, output_df = self.loader.load_processed_data()
         else:
             logger.info("Processing raw data...")
-            
-            # Load all weeks
-            input_df, output_df = self.loader.load_all_weeks()
-            
-            # Load and merge supplementary data
-            supp_df = self.loader.load_supplementary_data()
-            if supp_df is not None:
-                input_df = self.loader.merge_with_supplementary(input_df, supp_df)
-            
-            # Normalize coordinates
-            input_df = self.loader.normalize_coordinates(input_df)
-            
-            # Save processed data
-            self.loader.save_processed_data(input_df, output_df)
-            
-            # Create splits
-            splits = self.loader.create_train_val_test_splits(input_df, output_df)
-            for split_name, (split_input, split_output) in splits.items():
-                self.loader.save_processed_data(split_input, split_output, suffix=f"_{split_name}")
         
+        # Load all weeks
+        input_df, output_df = self.loader.load_all_weeks()
+        
+        # Load and merge supplementary data
+        supp_df = self.loader.load_supplementary_data()
+        if supp_df is not None:
+            input_df = self.loader.merge_with_supplementary(input_df, supp_df)
+        
+        # Encode categorical features (ADDED THIS)
+        input_df = self.loader.encode_categorical_features(input_df)
+        
+        # Normalize coordinates
+        input_df = self.loader.normalize_coordinates(input_df)
+        
+        # Save processed data
+        self.loader.save_processed_data(input_df, output_df)
+        
+        # Create splits
+        splits = self.loader.create_train_val_test_splits(input_df, output_df)
+        for split_name, (split_input, split_output) in splits.items():
+            self.loader.save_processed_data(split_input, split_output, suffix=f"_{split_name}")
+    
         # Get summary
         summary = self.loader.get_data_summary(input_df, output_df)
         logger.info("\nData Summary:")
         for key, value in summary.items():
             logger.info(f"  {key}: {value}")
-        
+    
         return input_df, output_df
     
     def create_features(self, force_recreate: bool = False):
@@ -128,63 +131,86 @@ class TrainingPipeline:
         logger.info(f"\nCreated {len(feature_cols)} features")
         
         return train_input, val_input, test_input, feature_cols
-    
     def train_baseline(self, train_input, val_input, feature_cols, model_type="xgboost"):
         """Train baseline model"""
         logger.info("\n" + "="*80)
         logger.info(f"STEP 3: TRAINING BASELINE MODEL ({model_type.upper()})")
         logger.info("="*80)
-        
+    
         # Load output data
-        _, train_output = self.loader.load_processed_data(suffix="_train")
+        train_input, train_output = self.loader.load_processed_data(suffix="_train")
         _, val_output = self.loader.load_processed_data(suffix="_val")
-        
+    
         # Initialize model
         model = BaselineModel(model_type=model_type)
-        
-        # Prepare data
-        X_train, y_x_train, y_y_train = model.prepare_data(train_input, train_output, feature_cols)
-        X_val, y_x_val, y_y_val = model.prepare_data(val_input, val_output, feature_cols)
-        
+    
+        # Get feature columns (exclude metadata and original categorical columns)
+        exclude_cols = [
+        'game_id', 'play_id', 'nfl_id', 'frame_id', 'player_to_predict',
+        'x', 'y', 'ball_land_x', 'ball_land_y', 'num_frames_output',
+        # Original categorical columns (now encoded)
+        'player_name', 'player_birth_date', 'player_position', 
+        'player_side', 'player_role', 'play_direction', 'player_height',
+        'play_description', 'possession_team', 'defensive_team',
+        'yardline_side', 'pass_result', 'offense_formation',
+        'receiver_alignment', 'route_of_targeted_receiver',
+        'dropback_type', 'pass_location_type', 'team_coverage_man_zone',
+        'team_coverage_type', 'game_date', 'game_time_eastern',
+        'home_team_abbr', 'visitor_team_abbr', 'game_clock', 'quarter',
+        'season', 'week'
+        ]
+    
+        # Filter to only numeric features
+        numeric_feature_cols = [col for col in feature_cols 
+                           if col not in exclude_cols and 
+                           col in train_input.columns and
+                           pd.api.types.is_numeric_dtype(train_input[col])]
+    
+        logger.info(f"Using {len(numeric_feature_cols)} numeric features out of {len(feature_cols)} total")
+    
+        # Prepare data (only pass input_df and feature_cols)
+        X_train, y_x_train, y_y_train = model.prepare_data(train_input, numeric_feature_cols)
+        X_val, y_x_val, y_y_val = model.prepare_data(val_input, numeric_feature_cols)
+    
         # Train
         model.train(X_train, y_x_train, y_y_train, X_val, y_x_val, y_y_val)
-        
+    
         # Evaluate
         train_metrics = model.evaluate(X_train, y_x_train, y_y_train)
         val_metrics = model.evaluate(X_val, y_x_val, y_y_val)
-        
+    
         logger.info("\nTraining Metrics:")
         for metric, value in train_metrics.items():
             logger.info(f"  {metric}: {value:.4f}")
-        
+    
         logger.info("\nValidation Metrics:")
         for metric, value in val_metrics.items():
             logger.info(f"  {metric}: {value:.4f}")
-        
-        # Feature importance
-        importance = model.get_feature_importance(feature_cols)
+    
+        # Feature importance (use numeric_feature_cols instead of feature_cols)
+        importance = model.get_feature_importance(numeric_feature_cols)
         if importance is not None:
             logger.info("\nTop 10 Features:")
             for idx, row in importance.head(10).iterrows():
                 logger.info(f"  {row['feature']}: {row['importance_avg']:.4f}")
-            
+        
             # Save importance
             importance.to_csv(
                 Path(self.config['training']['log_dir']) / f'{model_type}_feature_importance.csv',
                 index=False
             )
-            
+        
             # Visualize
             self.visualizer.plot_feature_importance(
                 importance,
                 save_path=str(Path(self.config['output']['visualizations_dir']) / 
                             f'{model_type}_feature_importance.png')
             )
-        
+    
         # Save model
         model_path = Path(self.config['training']['checkpoint_dir']) / f'baseline_{model_type}.pkl'
         model.save(str(model_path))
-        
+    
         return model
     
     def train_lstm(self, train_input, val_input, feature_cols):
