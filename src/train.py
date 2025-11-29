@@ -168,6 +168,9 @@ class TrainingPipeline:
             and pd.api.types.is_numeric_dtype(train_input[col])
         ]
 
+        # IMPORTANT: Save feature names into the model so we can reuse them for inference
+        model.feature_names = numeric_feature_cols
+
         logger.info(f"Using {len(numeric_feature_cols)} numeric features out of {len(feature_cols)} total")
 
         # Prepare data: pass both input_df and output_df and the feature list

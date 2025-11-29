@@ -248,66 +248,85 @@ class BaselineModel:
 
 
 class MultiFramePredictor:
-    """Predict multiple future frames using baseline model"""
-    
-    def __init__(self, baseline_model: BaselineModel):
-        """Initialize multi-frame predictor"""
-        self.model = baseline_model
-    
-    def predict_trajectory(self, 
-                          input_df: pd.DataFrame,
-                          feature_cols: List[str],
-                          num_frames: int) -> pd.DataFrame:
-        """Predict trajectory for multiple frames"""
+    def __init__(self, model: BaselineModel):
+        self.model = model
+
+    def predict_trajectory(self, input_df: pd.DataFrame, feature_cols, num_frames: int = 10) -> pd.DataFrame:
+        """
+        Predict multiple future frames for all players in input_df.
+
+        Assumes input_df contains at least:
+          - game_id, play_id, nfl_id, frame_id, x, y
+          - feature columns used by the model (feature_cols)
+        """
+        logger = logging.getLogger(__name__)
         logger.info(f"Predicting {num_frames} future frames...")
-        
-        predictions = []
+
+        # Make a working copy we can append to
         current_df = input_df.copy()
-        
-        for frame in range(1, num_frames + 1):
-            # Get last frame for each player
-            last_frames = current_df.groupby(['game_id', 'play_id', 'nfl_id'])['frame_id'].max().reset_index()
-            last_frames.columns = ['game_id', 'play_id', 'nfl_id', 'last_frame_id']
-            
-            current_last = current_df.merge(last_frames, on=['game_id', 'play_id', 'nfl_id'])
-            current_last = current_last[current_last['frame_id'] == current_last['last_frame_id']]
-            
-            # Extract features
-            X = current_last[feature_cols].values
+
+        # We'll accumulate predictions here
+        all_pred_rows = []
+
+        # We will start predicting from the frame AFTER the max frame_id present per (game_id, play_id, nfl_id)
+        for step in range(1, num_frames + 1):
+            logger.info(f"  Step {step}/{num_frames}")
+
+            # 1) Find the last frame per (game_id, play_id, nfl_id) in the current_df
+            last_frames = (
+                current_df
+                .groupby(['game_id', 'play_id', 'nfl_id'])['frame_id']
+                .max()
+                .reset_index()
+                .rename(columns={'frame_id': 'last_frame_id'})
+            )
+
+            # 2) Join back to get the full rows of the last frames
+            current_last = current_df.merge(
+                last_frames,
+                on=['game_id', 'play_id', 'nfl_id'],
+                how='inner'
+            )
+            # Keep only rows where frame_id == last_frame_id
+            current_last = current_last[current_last['frame_id'] == current_last['last_frame_id']].copy()
+
+            # 3) Ensure all feature columns exist and are numeric
+            for col in feature_cols:
+                if col not in current_last.columns:
+                    current_last[col] = 0.0
+                elif not pd.api.types.is_numeric_dtype(current_last[col]):
+                    current_last[col] = pd.to_numeric(current_last[col], errors='coerce').fillna(0.0)
+
+            # 4) Prepare feature matrix in the correct order
+            X = current_last[feature_cols].astype(float).values
             X = np.nan_to_num(X, nan=0.0)
-            
-            # Predict displacement
-            pred_x, pred_y = self.model.predict(X)
-            
-            # Calculate new positions
-            new_x = current_last['x'].values + pred_x
-            new_y = current_last['y'].values + pred_y
-            
-            # Store predictions
-            frame_pred = pd.DataFrame({
-                'game_id': current_last['game_id'],
-                'play_id': current_last['play_id'],
-                'nfl_id': current_last['nfl_id'],
-                'frame_id': frame,
-                'x': new_x,
-                'y': new_y
+
+            # 5) Predict displacement
+            dx, dy = self.model.predict(X)
+
+            # 6) Create next frame rows
+            next_frame_id = current_last['frame_id'] + 1
+
+            next_rows = pd.DataFrame({
+                'game_id': current_last['game_id'].values,
+                'play_id': current_last['play_id'].values,
+                'nfl_id': current_last['nfl_id'].values,
+                'frame_id': next_frame_id.values,
+                'x': current_last['x'].values + dx,
+                'y': current_last['y'].values + dy,
             })
-            
-            predictions.append(frame_pred)
-            
-            # Update current_df with new positions for next iteration
-            # (This is a simplified approach - in practice, you'd update all features)
-            new_frame = current_last.copy()
-            new_frame['frame_id'] = current_last['frame_id'].max() + 1
-            new_frame['x'] = new_x
-            new_frame['y'] = new_y
-            
-            current_df = pd.concat([current_df, new_frame], ignore_index=True)
-        
-        # Combine all predictions
-        all_predictions = pd.concat(predictions, ignore_index=True)
-        
-        return all_predictions
+
+            # Store for output
+            all_pred_rows.append(next_rows)
+
+            # Append into current_df so the next iteration can build on these
+            # (This assumes we want strictly-autoregressive predictions.)
+            current_df = pd.concat([current_df, next_rows], ignore_index=True)
+
+        # Concatenate all predicted rows
+        predictions = pd.concat(all_pred_rows, ignore_index=True)
+
+        return predictions
 
 
 def main():
