@@ -136,15 +136,15 @@ class TrainingPipeline:
         logger.info("\n" + "="*80)
         logger.info(f"STEP 3: TRAINING BASELINE MODEL ({model_type.upper()})")
         logger.info("="*80)
-    
-        # Load output data
-        train_input, train_output = self.loader.load_processed_data(suffix="_train")
-        _, val_output = self.loader.load_processed_data(suffix="_val")
-    
+
+        # Load output data using the existing loader (note: self.loader, not self.data_loader)
+        _, train_output = self.loader.load_processed_data(suffix="_train")
+        _, val_output   = self.loader.load_processed_data(suffix="_val")
+
         # Initialize model
         model = BaselineModel(model_type=model_type)
-    
-        # Get feature columns (exclude metadata and original categorical columns)
+
+        # Columns we never want to use as features
         exclude_cols = [
         'game_id', 'play_id', 'nfl_id', 'frame_id', 'player_to_predict',
         'x', 'y', 'ball_land_x', 'ball_land_y', 'num_frames_output',
@@ -159,58 +159,70 @@ class TrainingPipeline:
         'home_team_abbr', 'visitor_team_abbr', 'game_clock', 'quarter',
         'season', 'week'
         ]
-    
-        # Filter to only numeric features
-        numeric_feature_cols = [col for col in feature_cols 
-                           if col not in exclude_cols and 
-                           col in train_input.columns and
-                           pd.api.types.is_numeric_dtype(train_input[col])]
-    
+
+        # Filter to only numeric features that actually exist in train_input
+        numeric_feature_cols = [
+            col for col in feature_cols 
+            if col not in exclude_cols
+            and col in train_input.columns
+            and pd.api.types.is_numeric_dtype(train_input[col])
+        ]
+
         logger.info(f"Using {len(numeric_feature_cols)} numeric features out of {len(feature_cols)} total")
-    
-        # Prepare data (only pass input_df and feature_cols)
-        X_train, y_x_train, y_y_train = model.prepare_data(train_input, numeric_feature_cols)
-        X_val, y_x_val, y_y_val = model.prepare_data(val_input, numeric_feature_cols)
-    
+
+        # Prepare data: pass both input_df and output_df and the feature list
+        X_train, y_x_train, y_y_train = model.prepare_data(
+            train_input,
+            train_output,
+            numeric_feature_cols,
+        )
+        X_val, y_x_val, y_y_val = model.prepare_data(
+            val_input,
+            val_output,
+            numeric_feature_cols,
+        )
+
         # Train
         model.train(X_train, y_x_train, y_y_train, X_val, y_x_val, y_y_val)
-    
+
         # Evaluate
         train_metrics = model.evaluate(X_train, y_x_train, y_y_train)
-        val_metrics = model.evaluate(X_val, y_x_val, y_y_val)
-    
+        val_metrics   = model.evaluate(X_val,   y_x_val,   y_y_val)
+
         logger.info("\nTraining Metrics:")
         for metric, value in train_metrics.items():
             logger.info(f"  {metric}: {value:.4f}")
-    
+
         logger.info("\nValidation Metrics:")
         for metric, value in val_metrics.items():
             logger.info(f"  {metric}: {value:.4f}")
-    
-        # Feature importance (use numeric_feature_cols instead of feature_cols)
+
+        # Feature importance
         importance = model.get_feature_importance(numeric_feature_cols)
         if importance is not None:
             logger.info("\nTop 10 Features:")
-            for idx, row in importance.head(10).iterrows():
+            for _, row in importance.head(10).iterrows():
                 logger.info(f"  {row['feature']}: {row['importance_avg']:.4f}")
-        
+
             # Save importance
             importance.to_csv(
                 Path(self.config['training']['log_dir']) / f'{model_type}_feature_importance.csv',
                 index=False
             )
-        
+
             # Visualize
             self.visualizer.plot_feature_importance(
                 importance,
-                save_path=str(Path(self.config['output']['visualizations_dir']) / 
-                            f'{model_type}_feature_importance.png')
+                save_path=str(
+                    Path(self.config['output']['visualizations_dir']) 
+                    / f'{model_type}_feature_importance.png'
+                )
             )
-    
+
         # Save model
         model_path = Path(self.config['training']['checkpoint_dir']) / f'baseline_{model_type}.pkl'
         model.save(str(model_path))
-    
+
         return model
     
     def train_lstm(self, train_input, val_input, feature_cols):

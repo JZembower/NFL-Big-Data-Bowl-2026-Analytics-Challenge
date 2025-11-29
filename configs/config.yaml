@@ -26,7 +26,7 @@ features:
   rolling_windows: [3, 5]
   
   # Medium priority features
-  player_interactions: true
+  player_interactions: false
   interaction_radius: 5.0  # yards
   team_aggregations: true
   play_context: true
