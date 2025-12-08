@@ -1,0 +1,6 @@
+defender_proximity_bin,is_completion,expected_points_added,play_id
+<2 yds,0.464,0.17,562
+2-5 yds,0.678,0.121,828
+5-10 yds,0.817,0.14,573
+10-15 yds,0.919,-0.041,149
+15+ yds,0.773,-0.585,22

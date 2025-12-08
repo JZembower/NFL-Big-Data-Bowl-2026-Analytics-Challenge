@@ -1,0 +1,6 @@
+speed_category,is_completion,expected_points_added,play_id
+Very Slow (0-2),0.824,-0.004,91
+Slow (2-4),0.755,0.011,359
+Medium (4-6),0.725,0.021,755
+Fast (6-8),0.632,0.23,763
+Very Fast (8+),0.416,0.368,166

@@ -1,0 +1,8 @@
+offense_formation,is_completion,expected_points_added,play_id
+WILDCAT,1.0,2.893,1
+JUMBO,0.75,1.251,4
+PISTOL,0.824,0.883,17
+SINGLEBACK,0.759,0.562,29
+SHOTGUN,0.68,0.106,1826
+EMPTY,0.623,0.093,247
+I_FORM,0.8,0.009,10

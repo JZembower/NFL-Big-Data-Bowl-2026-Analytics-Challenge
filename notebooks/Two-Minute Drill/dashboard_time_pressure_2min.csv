@@ -1,0 +1,5 @@
+time_category,is_completion,expected_points_added,play_id
+0-30 sec,0.624,0.062,450
+30-60 sec,0.685,0.127,604
+1-1.5 min,0.694,0.117,471
+1.5-2 min,0.694,0.166,608
