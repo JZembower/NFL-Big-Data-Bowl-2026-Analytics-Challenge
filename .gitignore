@@ -1,2 +1,15 @@
 # Virtual libraries
 .venv
+
+# Datasets processed
+data/processed
+data/splits
+
+# Checkpoints
+checkpoints
+
+# Pycache
+src/__pycache__
+
+# Model outputs
+models
