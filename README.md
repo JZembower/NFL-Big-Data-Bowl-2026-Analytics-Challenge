@@ -154,14 +154,12 @@ NFL-Big-Data-Bowl-2026-Analytics-Challenge/
 
 ### 🆕 New Files Created (Ready to Add to Repository)
 
-These files were created during comprehensive analysis and are located locally at `/home/ubuntu/`:
-
 #### Enhanced Storytelling Notebooks (3 files)
 ```
-/home/ubuntu/
-├── 05_storytelling_two_minute_drill_enhanced.ipynb    # ✨ ENHANCED: Clock vs yards
-├── 06_storytelling_redzone_enhanced.ipynb             # ✨ ENHANCED: Field diagrams added
-└── 07_storytelling_coach_decision_making_enhanced.ipynb # ✨ ENHANCED: Decision matrices
+/specific analysis
+├── Two_Minute_Drill.ipynb    # ✨ ENHANCED: Clock vs yards
+├── Redzone.ipynb             # ✨ ENHANCED: Field diagrams added
+└── Coaching.ipynb # ✨ ENHANCED: Decision matrices
 ```
 
 **Enhancements over original notebooks:**
@@ -173,7 +171,7 @@ These files were created during comprehensive analysis and are located locally a
 
 #### Comprehensive Analysis Results (38 files, 580KB)
 ```
-/home/ubuntu/analysis_results/            # 🆕 NEW DIRECTORY
+/         # 🆕 NEW DIRECTORY
 ├── Documentation (5 files)
 │   ├── COMPREHENSIVE_FINDINGS_REPORT.md      # 24KB - Executive summary
 │   ├── INDEX_AND_DOCUMENTATION.md            # 14KB - File guide
@@ -233,8 +231,7 @@ These files were created during comprehensive analysis and are located locally a
 
 #### Updated Research Paper (1 file)
 ```
-/home/ubuntu/
-└── Race_to_Ball_Metric_Paper_Updated.docx    # 🔄 UPDATED: Added coaching sections
+Race_to_Ball_Metric_Paper_Updated.docx    # 🔄 UPDATED: Added coaching sections
 ```
 
 **New sections added:**
@@ -242,35 +239,7 @@ These files were created during comprehensive analysis and are located locally a
 - "QB-WR Chemistry: Trust in the Clutch" (7 professional tables)
 - Bridges academic research with practical coaching application
 
-#### Supporting Documentation (3 files)
 ```
-/home/ubuntu/
-├── ENHANCED_NOTEBOOKS_README.md          # Guide to enhanced notebooks 05-07
-├── 08_NOTEBOOK_README.md                 # Technical documentation for notebook 08
-└── FINAL_NOTEBOOK_SUMMARY.md             # Project completion summary
-```
-
-### 📊 File Status Summary
-
-| File Type | Status | Location | Count |
-|-----------|--------|----------|-------|
-| **Original Notebooks (01-04)** | ✅ In GitHub | `notebooks/` | 4 |
-| **Storytelling Notebooks (05-07)** | ✅ In GitHub (basic version) | `notebooks/` | 3 |
-| **Enhanced Notebooks (05-07)** | 🆕 NEW (locally) | `/home/ubuntu/` | 3 |
-| **Centerpiece Notebook (08)** | ✅ In GitHub | `notebooks/` | 1 |
-| **Analysis Results** | 🆕 NEW (locally) | `/home/ubuntu/analysis_results/` | 38 |
-| **Updated Research Paper** | 🔄 UPDATED (locally) | `/home/ubuntu/` | 1 |
-| **Raw Data Files** | ✅ In GitHub | `Data/raw/` | 37 |
-| **Generated Model Outputs** | ✅ In GitHub | `models/`, `Data/processed/` | 13 |
-| **Visualizations** | ✅ In GitHub | `visualizations/`, `specific analysis/data/` | 25+ |
-| **Python Scripts** | ✅ In GitHub | `specific analysis/`, `src/` | 6 |
-
-**Total Files:**
-- **In GitHub Repository**: 133 files
-- **New/Enhanced Locally**: 46 files (ready to add)
-- **Combined Project**: 179 files
-
----
 
 ## 🔄 Understanding the Project Evolution
 
@@ -290,88 +259,29 @@ This project builds upon the original NFL Big Data Bowl repository with signific
 #### Phase 2: Comprehensive Enhancement (New Additions)
 **What was created during this analysis:**
 
-1. **Enhanced Storytelling Notebooks (05-07 Enhanced)**
-   - Built upon original notebooks 05-07
+1. **Enhanced Storytelling Notebooks (05-07)**
+   - Specific Analysis Notebooks built upon original notebooks 05-07
    - Added NFL field diagrams, heatmaps, decision matrices
    - Optimized for tablet viewing (large fonts, high contrast)
    - Coach-ready language and actionable recommendations
    - **Status**: Ready to replace/supplement original versions
 
-2. **Analysis Results Directory (38 files)**
+2. **Specific Analysis/Data Directory (38 files)**
    - Comprehensive situational analysis across all game contexts
    - QB-WR chemistry profiles with trust metrics
    - Coverage vulnerability matrices
    - Formation optimization by down & distance
    - Play action impact analysis
-   - **Status**: New directory to be added to repository
 
-3. **Updated Research Paper**
-   - Added "Coaching Decision Aids" section (10 strategic callouts)
-   - Added "QB-WR Chemistry: Trust in the Clutch" section
-   - Bridges academic research with practical coaching
-   - **Status**: Updated version ready to replace original
-
-4. **Supporting Documentation**
-   - Comprehensive guides for enhanced notebooks
-   - Technical documentation for notebook 08
-   - Project completion summaries and quick-start guides
-   - **Status**: New files to complement existing documentation
-
-### File Relationship Matrix
-
-| Component | Original (GitHub) | Enhanced/New (Local) | Relationship |
-|-----------|-------------------|----------------------|--------------|
-| **Notebook 05** | ✅ Basic two-minute drill analysis | ✨ Enhanced with field diagrams & decision trees | **Supplement** |
-| **Notebook 06** | ✅ Basic red zone analysis | ✨ Enhanced with NFL field visualizations | **Supplement** |
-| **Notebook 07** | ✅ Basic coaching decisions | ✨ Enhanced with coverage attack matrices | **Supplement** |
-| **Notebook 08** | ✅ Comprehensive decision aids | 📊 Outputs in `Final Analysis/` | **Already integrated** |
-| **Analysis Files** | ❌ Not present | 🆕 38 files in `analysis_results/` | **New addition** |
-| **Research Paper** | ✅ Original paper | 🔄 Updated with coaching sections | **Replace** |
-| **Generated Outputs** | ✅ In subdirectories | 📊 Referenced by notebooks | **Already integrated** |
-
-### Integration Roadmap
-
-**Option A: Full Integration (Recommended)**
-```bash
-# Add all new files to repository
-git add /home/ubuntu/analysis_results/
-git add /home/ubuntu/*_enhanced.ipynb
-git add /home/ubuntu/Race_to_Ball_Metric_Paper_Updated.docx
-git add /home/ubuntu/*_README.md
-
-# Commit with clear message
-git commit -m "Add comprehensive coaching analysis and enhanced storytelling notebooks"
-```
-
-**Option B: Selective Integration**
-```bash
-# Add only critical coaching tools
-git add /home/ubuntu/analysis_results/
-git add /home/ubuntu/08_Final_Sideline_Suggestions.ipynb  # Already in repo
-git add /home/ubuntu/Race_to_Ball_Metric_Paper_Updated.docx
-
-# Keep enhanced notebooks separate for comparison
-```
-
-**Option C: Separate Branch**
-```bash
-# Create enhancement branch
-git checkout -b enhanced-coaching-analysis
-git add /home/ubuntu/analysis_results/
-git add /home/ubuntu/*_enhanced.ipynb
-git commit -m "Enhanced storytelling with coaching decision aids"
-```
 
 ### What to Use for Different Purposes
 
-| Purpose | Recommended Files | Location |
-|---------|------------------|----------|
-| **Academic Submission** | Notebooks 01-04, Updated Paper | GitHub + `/home/ubuntu/` |
-| **Coaching Staff Presentation** | Notebook 08, Enhanced 05-07, Analysis Results | `/home/ubuntu/` |
-| **Live Game Support** | `analysis_results/QUICK_REFERENCE.txt`, Notebook 08 outputs | `/home/ubuntu/analysis_results/` |
-| **Code Review/Replication** | Original notebooks 01-08, Python scripts | GitHub repository |
-| **Strategic Planning** | Analysis Results directory, Enhanced notebooks | `/home/ubuntu/` |
-| **Model Training** | Notebooks 02-04, `src/feature_engineering.py` | GitHub repository |
+| **Academic Submission** | Notebooks 01-04, Paper|
+| **Coaching Staff Presentation** | Notebook 08, Specific Analysis/Notebooks |
+| **Live Game Support** | `analysis_results/QUICK_REFERENCE.txt`, Notebook 08 outputs |
+| **Code Review/Replication** | Original notebooks 01-08, Python scripts |
+| **Strategic Planning** | Analysis Results directory, Specific Analysis/Notebooks | 
+| **Model Training** | Notebooks 02-04, `src/feature_engineering.py` |
 
 ---
 
@@ -388,35 +298,12 @@ git commit -m "Enhanced storytelling with coaching decision aids"
 
 ### Storytelling & Coaching Notebooks (05-08)
 
-#### Original Versions (In GitHub Repository)
-
 | Notebook | Focus | Key Output |
 |----------|-------|------------|
 | **05_storytelling_two_minute_drill.ipynb** | Two-minute drill scenarios | Basic analysis of clock management and play selection |
 | **06_storytelling_redzone.ipynb** | Red zone strategy | Initial red zone efficiency analysis |
 | **07_storytelling_coach_decision_making.ipynb** | Coaching decisions | Preliminary coverage and formation analysis |
 | **08_Final_Sideline_Suggestions.ipynb** | 🆕 Comprehensive decision support | 6 visualizations + 3 coaching guides (outputs in `notebooks/Final Analysis/`) |
-
-#### Enhanced Versions (Local, Ready to Add)
-
-| Notebook | Enhancements | Coaching Value |
-|----------|--------------|----------------|
-| **05_storytelling_two_minute_drill_enhanced.ipynb** | + NFL field diagrams<br>+ Pass depth strategy charts<br>+ Decision trees | Clock vs. Yards trade-off framework, timeout management guidance |
-| **06_storytelling_redzone_enhanced.ipynb** | + Field position visualizations<br>+ Route effectiveness heatmaps<br>+ Elite QB-WR pair identification | Red zone play-calling optimization with field-specific recommendations |
-| **07_storytelling_coach_decision_making_enhanced.ipynb** | + Coverage vulnerability matrices<br>+ Play action advantage charts<br>+ Formation rankings | Pre-snap coverage reads → optimal play selection framework |
-
-**Key Differences:**
-- **Original notebooks (05-07)**: Foundational analysis, basic visualizations
-- **Enhanced notebooks (05-07)**: Tablet-optimized, NFL field diagrams, coach-ready language
-- **Notebook 08**: Already comprehensive in repository (centerpiece decision aid)
-
-### Centerpiece Decision Aid (Notebook 08 - Already in Repository)
-
-| Component | Description |
-|-----------|-------------|
-| **08_Final_Sideline_Suggestions.ipynb** | Comprehensive coaching decision support system |
-| **Output:** | 6 high-resolution PNG visualizations + 3 coaching guide TXT files |
-| **Features:** | • Decision matrices for all situations<br>• NFL field diagrams with passing zones<br>• QB-WR chemistry analysis<br>• Interactive recommendation engine<br>• Static (paper-ready) visualizations<br>• Real-time situation lookup tools |
 
 ---
 
@@ -537,99 +424,9 @@ Down & Distance → Formation → Expected EPA:
 
 ---
 
-## 🚀 Quick Start
-
-### Option 1: Use GitHub Repository (Original + Notebook 08)
-
-```bash
-# 1. Clone the repository
-git clone https://github.com/yourname/NFL-Big-Data-Bowl-2026-Analytics-Challenge.git
-cd NFL-Big-Data-Bowl-2026-Analytics-Challenge
-
-# 2. Create environment
-conda create -n nfl python=3.10 -y
-conda activate nfl
-
-# 3. Install dependencies
-pip install -r requirements.txt
-
-# For GPU support (recommended for trajectory modeling)
-pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
-```
-
-### Run the Core Pipeline
-
-```bash
-# Execute notebooks in sequence:
-
-jupyter notebook notebooks/01_eda.ipynb                       # Explore the data
-jupyter notebook notebooks/02_features.ipynb                  # Engineer features
-jupyter notebook notebooks/03_modeling_route.ipynb            # Train trajectory model (GPU)
-jupyter notebook notebooks/04_modeling_completions.ipynb      # Train completion classifier
-
-# Storytelling & coaching aids (original versions)
-jupyter notebook notebooks/05_storytelling_two_minute_drill.ipynb
-jupyter notebook notebooks/06_storytelling_redzone.ipynb
-jupyter notebook notebooks/07_storytelling_coach_decision_making.ipynb
-
-# CENTERPIECE: Comprehensive decision support
-jupyter notebook notebooks/08_Final_Sideline_Suggestions.ipynb
-```
-
-**Outputs:**
-- Models saved to `models/`
-- Visualizations saved to `visualizations/`
-- Notebook 08 outputs saved to `notebooks/Final Analysis/`
-
-### Option 2: Use Enhanced Analysis (Local Files)
-
-If you have the enhanced local files at `/home/ubuntu/`:
-
-```bash
-# Run enhanced storytelling notebooks (improved visualizations)
-jupyter notebook /home/ubuntu/05_storytelling_two_minute_drill_enhanced.ipynb
-jupyter notebook /home/ubuntu/06_storytelling_redzone_enhanced.ipynb
-jupyter notebook /home/ubuntu/07_storytelling_coach_decision_making_enhanced.ipynb
-
-# Access comprehensive analysis results
-cd /home/ubuntu/analysis_results/
-cat START_HERE.txt              # Quick orientation guide
-cat QUICK_REFERENCE.txt         # Fast decision lookup
-
-# View comprehensive findings
-open COMPREHENSIVE_FINDINGS_REPORT.md
-open INDEX_AND_DOCUMENTATION.pdf
-```
-
-**Additional Outputs:**
-- 38 analysis files in `/home/ubuntu/analysis_results/`
-- Enhanced visualizations with NFL field diagrams
-- Coach-ready decision matrices and heatmaps
-
-### Option 3: Complete Integration
-
-To integrate all enhanced files into the repository:
-
-```bash
-# From within your cloned repository
-cd NFL-Big-Data-Bowl-2026-Analytics-Challenge
-
-# Copy enhanced files (adjust paths as needed)
-cp /home/ubuntu/analysis_results/ ./analysis_results/ -r
-cp /home/ubuntu/*_enhanced.ipynb ./notebooks/
-cp /home/ubuntu/Race_to_Ball_Metric_Paper_Updated.docx ./
-
-# Add to git
-git add analysis_results/ notebooks/*_enhanced.ipynb Race_to_Ball_Metric_Paper_Updated.docx
-git commit -m "Add comprehensive coaching analysis and enhanced notebooks"
-git push origin main
-```
-
----
-
 ## 📖 Interactive Tools & Coaching Guides
 
-### Notebook 08: Sideline Decision Support System (In GitHub Repository)
+### Notebook 08: Sideline Decision Support System
 
 **Location**: `notebooks/08_Final_Sideline_Suggestions.ipynb`  
 **Outputs**: `notebooks/Final Analysis/` (8 files generated by notebook)
@@ -660,7 +457,6 @@ git push origin main
 - `START_HERE.txt` – Getting started guide
 - `QUICK_REFERENCE.txt` – Fast decision lookup (print this!)
 - `COMPREHENSIVE_FINDINGS_REPORT.md` – Executive summary (24KB)
-- `INDEX_AND_DOCUMENTATION.pdf` – Complete guide (99KB, printable)
 
 **Data Files for Analysis:**
 - 3 QB-WR chemistry files (141KB total)
@@ -669,43 +465,6 @@ git push origin main
 - 3 formation optimization files
 - 3 player profile files
 - And 19 more specialized analysis files
-
-**Quick Access:**
-```bash
-# View quick reference for sideline use
-cat /home/ubuntu/analysis_results/QUICK_REFERENCE.txt
-
-# Open comprehensive findings
-open /home/ubuntu/analysis_results/COMPREHENSIVE_FINDINGS_REPORT.md
-
-# Access all QB-WR pairs by situation
-python -c "import pandas as pd; print(pd.read_csv('/home/ubuntu/analysis_results/qb_wr_pairs_by_situation.csv').head())"
-```
-
----
-
-## 📝 Research Paper Updates
-
-**Race_to_Ball_Metric_Paper_Updated.docx** includes two major new sections:
-
-### Section: "From Data to Decisions: Coaching Decision Aids"
-- Transformation from descriptive analytics to prescriptive coaching tools
-- Decision matrix methodology
-- Field diagram development process
-- Interactive tool architecture
-- 10 strategic callout boxes with actionable insights
-
-### Section: "QB-WR Chemistry: Trust in the Clutch"
-- Chemistry quantification methodology (Trust Index)
-- Elite pair identification in high-leverage situations
-- Separation dynamics and timing analysis
-- When to trust tight-window throws
-- 7 professional tables with statistical rigor
-
-**Paper Impact:**
-- Bridges academic research with practical coaching application
-- Provides framework for future coaching analytics platforms
-- Demonstrates scalability to other sports and decision contexts
 
 ---
 
@@ -854,7 +613,6 @@ Different QB-WR pairs excel in different contexts:
 ### Research Questions
 - Can we predict pre-snap which receiver will be targeted?
 - What movement patterns indicate coverage breakdowns?
-- How does weather impact trajectory prediction accuracy?
 - Can we detect fatigue from tracking data alone?
 - What makes a "trust" window throw successful vs interception?
 
@@ -867,18 +625,6 @@ This project welcomes contributions from:
 - **Researchers**: Extend models, publish findings, replicate studies
 - **Developers**: Build web/mobile interfaces, optimize inference
 - **Coaches**: Provide feedback on decision aid usability
-
-**How to Contribute:**
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/new-analysis`)
-3. Commit changes with clear messages
-4. Add tests if applicable
-5. Submit pull request with detailed description
-
-**Contact:**
-- Issues: [GitHub Issues](https://github.com/yourname/nfl-big-data-bowl/issues)
-- Discussions: [GitHub Discussions](https://github.com/yourname/nfl-big-data-bowl/discussions)
-- Email: jonah.zembower@example.com
 
 ---
 
@@ -904,13 +650,6 @@ This project welcomes contributions from:
 
 ---
 
-## 📄 License & Acknowledgments
-
-### License
-This project is released under the **MIT License**. See `LICENSE` file for details.
-
-**Commercial Use**: Permitted with attribution. NFL teams using this system should acknowledge the source.
-
 ### Acknowledgments
 
 **Massive thanks to:**
@@ -919,33 +658,6 @@ This project is released under the **MIT License**. See `LICENSE` file for detai
 - **Carnegie Mellon University Heinz College** for supporting sports analytics research
 - **Heinz Sports Analytics Club** for feedback and collaboration
 - **Open-source community** for the tools that made this possible
-
-**Special Recognition:**
-The coaching decision aids (notebooks 05-08) were inspired by conversations with:
-- High school and college coaches seeking data-driven insights
-- NFL analytics departments pushing for interpretable models
-- Sports science researchers bridging theory and practice
-
----
-
-## 📞 Support & Questions
-
-### Quick Help
-- **Getting Started**: Read `analysis_results/START_HERE.txt`
-- **Quick Reference**: See `analysis_results/QUICK_REFERENCE.txt`
-- **Detailed Documentation**: Review `analysis_results/INDEX_AND_DOCUMENTATION.md`
-
-### Common Issues
-- **GPU Out of Memory**: Reduce batch size in notebook 03 (line 342)
-- **Missing Data Files**: Ensure all weeks 1-18 CSVs are in `data/raw/`
-- **Slow Training**: Use GPU for notebook 03, CPU sufficient for 04
-- **Visualization Not Showing**: Update Plotly (`pip install -U plotly`)
-
-### Contact
-- **GitHub Issues**: For bugs, feature requests, technical questions
-- **Email**: jonah.zembower@example.com (response within 48 hours)
-- **LinkedIn**: [Jonah Zembower](https://linkedin.com/in/jonahzembower)
-- **Twitter**: [@jonah_analytics](https://twitter.com/jonah_analytics)
 
 ---
 
@@ -978,97 +690,30 @@ That's not just analytics. **That's trust backed by data.**
 
 ---
 
-**Ready to transform your team's decision-making?**  
-**Start with:** `analysis_results/START_HERE.txt`
-
----
-
 *Built with precision. Delivered with purpose.*  
-**— Jonah Zembower / Carnegie Mellon Heinz Sports Analytics**  
+**— Jonah Zembower, Brady Nolin, Alon Stein / Carnegie Mellon Heinz Sports Analytics**  
 December 17, 2025
-
----
-
-## 📦 Appendix: Project Statistics
-
-### GitHub Repository Stats
-- **Total Files**: 133 files across 12 directories
-- **Notebooks**: 8 comprehensive Jupyter notebooks
-- **Data Files**: 37 raw CSV files (18 weeks × 2 + metadata)
-- **Model Outputs**: 8 trained model artifacts and visualizations
-- **Visualizations**: 12 EDA plots + 13 analysis plots
-- **Python Scripts**: 6 analysis and feature engineering scripts
-
-### New Analysis Assets (Local)
-- **Analysis Results**: 38 files, 580KB total
-- **Enhanced Notebooks**: 3 upgraded storytelling notebooks
-- **Documentation**: 3 comprehensive guides
-- **Updated Research**: 1 paper with 2 new coaching sections
-
-### Development Metrics
-- **Lines of Code**: ~15,000+ (notebooks + scripts)
-- **Visualizations Created**: 50+ charts, heatmaps, field diagrams
-- **CSV Tables Generated**: 38 analysis files
-- **High-Leverage Situations Analyzed**: 3,200+
-- **Total Plays Analyzed**: 18,009
-- **Tracking Frames Processed**: 4,500,000+
-- **Coaching Decisions Supported**: 1,000+ scenarios
-
-### File Size Summary
-| Category | Size | File Count |
-|----------|------|------------|
-| Raw Data (GitHub) | ~2.5GB | 37 |
-| Processed Data (GitHub) | ~800MB | 5 |
-| Models (GitHub) | ~120MB | 8 |
-| Visualizations (GitHub) | ~45MB | 25 |
-| Analysis Results (Local) | 580KB | 38 |
-| Notebooks | ~250KB | 8 (original) + 3 (enhanced) |
-| Documentation | ~350KB | 6 markdown/text files |
-
-### Key Deliverables Checklist
-
-**✅ In GitHub Repository:**
-- [x] Complete data pipeline (01-04)
-- [x] Storytelling notebooks (05-07, basic versions)
-- [x] Comprehensive decision aid (08)
-- [x] Trained models and metrics
-- [x] EDA visualizations
-- [x] Python analysis scripts
-- [x] Generated outputs in subdirectories
-
-**🆕 Ready to Add (Local):**
-- [x] Enhanced storytelling notebooks (05-07)
-- [x] Comprehensive analysis results (38 files)
-- [x] Updated research paper
-- [x] Supporting documentation
-
-**📊 Generated During Analysis:**
-- [x] QB-WR chemistry profiles
-- [x] Coverage vulnerability matrices
-- [x] Formation optimization tables
-- [x] Play action impact analysis
-- [x] Separation dynamics data
 
 ---
 
 ## 🔗 Quick Reference Links
 
 ### For Coaches
-- **Start Here**: `/home/ubuntu/analysis_results/START_HERE.txt`
-- **Quick Lookup**: `/home/ubuntu/analysis_results/QUICK_REFERENCE.txt`
-- **Full Report**: `/home/ubuntu/analysis_results/COMPREHENSIVE_FINDINGS_REPORT.md`
+- **Start Here**: `/Specific Analysis/data/START_HERE.txt`
+- **Quick Lookup**: `/Specific Analysis/data/QUICK_REFERENCE.txt`
+- **Full Report**: `/Specific Analysis/data/COMPREHENSIVE_FINDINGS_REPORT.md`
 - **Notebook 08**: `notebooks/08_Final_Sideline_Suggestions.ipynb`
 
 ### For Analysts
 - **Feature Engineering**: `src/feature_engineering.py`
 - **Analysis Scripts**: `specific analysis/*.py`
 - **Model Training**: `notebooks/03_modeling_route.ipynb` & `notebooks/04_modeling_completions.ipynb`
-- **Data Files**: `/home/ubuntu/analysis_results/*.csv`
+- **Data Files**: `Specific Analysis/data/*.csv`
 
 ### For Developers
 - **GitHub Repo**: `NFL-Big-Data-Bowl-2026-Analytics-Challenge/`
 - **Requirements**: `requirements.txt`
-- **Enhanced Notebooks**: `/home/ubuntu/*_enhanced.ipynb`
+- **Enhanced Notebooks**: `/Specific Analysis/*.ipynb`
 - **Integration Guide**: See "Integration Roadmap" section above
 
 ---
