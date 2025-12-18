@@ -1,0 +1,60 @@
+
+╔═══════════════════════════════════════════════════════════════════════════════╗
+║                    🎯 AGGRESSIVE vs CONSERVATIVE FRAMEWORK                    ║
+╚═══════════════════════════════════════════════════════════════════════════════╝
+
+                              START: Evaluate Situation
+                                        │
+                    ┌───────────────────┼───────────────────┐
+                    │                   │                   │
+              ┌─────▼─────┐      ┌──────▼──────┐      ┌────▼────┐
+              │ Trailing  │      │Close Game   │      │ Leading │
+              │  by 7+    │      │ (±7 points) │      │  by 7+  │
+              └─────┬─────┘      └──────┬──────┘      └────┬────┘
+                    │                   │                   │
+           ┌────────▼─────────┐ ┌───────▼───────┐ ┌────────▼────────┐
+           │ BE AGGRESSIVE    │ │ BE BALANCED   │ │ BE CONSERVATIVE │
+           │                  │ │               │ │                 │
+           │ • High EPA plays │ │ • Situational │ │ • High comp %   │
+           │ • Play action    │ │ • Trust data  │ │ • Protect ball  │
+           │ • Deep shots     │ │ • Mix depths  │ │ • Short-medium  │
+           │ • 4-down mode    │ │ • Elite pairs │ │ • Run clock     │
+           └──────────────────┘ └───────────────┘ └─────────────────┘
+
+═══════════════════════════════════════════════════════════════════════════════
+
+SITUATION-SPECIFIC MODIFIERS:
+
+┌─────────────────┬──────────────────────┬─────────────────────────────────┐
+│   SITUATION     │   PRIMARY GOAL       │   RECOMMENDED APPROACH          │
+├─────────────────┼──────────────────────┼─────────────────────────────────┤
+│ 4th Down        │ CONVERT              │ Play Action + Elite Pairs       │
+│ Red Zone        │ SCORE TD             │ Target Cover 2, Medium Passes   │
+│ 3rd & Long      │ GET 1ST DOWN         │ Empty Formation, Attack Seams   │
+│ Two-Minute      │ SCORE + CLOCK MGMT   │ Sideline Routes + Play Action   │
+│ Goal Line       │ PUNCH IT IN          │ Target Cover 4, Elite Chemistry │
+└─────────────────┴──────────────────────┴─────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════════════════════
+
+COVERAGE-BASED ADJUSTMENTS:
+
+   COVER 2 ZONE ──────────► ✅ ATTACK AGGRESSIVELY (Highest success rates)
+
+   COVER 3/4 ZONE ────────► ⚠️ BALANCED APPROACH (Check situation data)
+
+   COVER 0/1 MAN ─────────► 🎯 QUICK GAME + HOT ROUTES (Tight coverage)
+
+   PREVENT ───────────────► 📊 SHORT-MEDIUM (Take what defense gives)
+
+═══════════════════════════════════════════════════════════════════════════════
+
+FIELD POSITION CONTEXT:
+
+   Own 1-20 ──────► Conservative (Protect ball, get breathing room)
+   Own 21-40 ─────► Balanced (Normal play-calling)
+   Own 41-Opp 40 ─► Balanced to Aggressive (Field position matters less)
+   Opp 39-21 ─────► Aggressive (Scoring territory, go for it)
+   Opp 20-1 ──────► Red Zone Protocol (Target Cover 2, use play action)
+
+═══════════════════════════════════════════════════════════════════════════════

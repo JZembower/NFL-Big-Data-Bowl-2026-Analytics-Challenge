@@ -1,0 +1,91 @@
+
+╔═══════════════════════════════════════════════════════════════════════════════╗
+║                     🏈 SIDELINE PLAY-CALLING CHEAT SHEET 🏈                  ║
+║                        NFL Big Data Bowl 2025                                 ║
+╠═══════════════════════════════════════════════════════════════════════════════╣
+║                                                                               ║
+║  📊 COVERAGE TO TARGET: COVER 2 ZONE                                          ║
+║     • Red Zone: 74.6% completion                                              ║
+║     • 3rd & Long: 73.6% completion                                            ║
+║     • 4th Down: 61.1% completion                                              ║
+║                                                                               ║
+╠═══════════════════════════════════════════════════════════════════════════════╣
+║                                                                               ║
+║  🎭 PLAY ACTION BOOST BY SITUATION:                                           ║
+║                                                                               ║
+║     4TH DOWN ────────► +14.9% completion │ +0.840 EPA │ USE ALWAYS            ║
+║     Red Zone ────────► +6.3% completion  │ +0.192 EPA │ USE OFTEN             ║
+║     Two-Minute ──────► +4.4% completion  │ +0.071 EPA │ DON'T ABANDON         ║
+║     3rd & Long ──────► -1.4% completion  │ +0.417 EPA │ EPA still positive    ║
+║                                                                               ║
+╠═══════════════════════════════════════════════════════════════════════════════╣
+║                                                                               ║
+║  🏈 FORMATION SELECTION:                                                      ║
+║                                                                               ║
+║     3rd & Long  ────────► EMPTY (0.379 EPA) ────────► Spread defense          ║
+║     3rd & Short ────────► JUMBO (0.268 EPA) ────────► Power football          ║
+║     Red Zone ───────────► SHOTGUN (0.385 EPA w/ PA)  ► Quick throws           ║
+║     4th Down ───────────► Any + Play Action ─────────► Highest success        ║
+║                                                                               ║
+╠═══════════════════════════════════════════════════════════════════════════════╣
+║                                                                               ║
+║  📏 PASS DEPTH STRATEGY:                                                      ║
+║                                                                               ║
+║     SHORT (0-5 yds) ────► 75-82% comp │ Low EPA  │ Move chains                ║
+║     MEDIUM (6-15 yds) ──► 60-70% comp │ Med EPA  │ Balanced approach          ║
+║     DEEP (16+ yds) ─────► 30-48% comp │ High EPA │ Shot plays                 ║
+║                                                                               ║
+║     💡 Mix depths: Use short to move chains, deep to score                    ║
+║                                                                               ║
+╠═══════════════════════════════════════════════════════════════════════════════╣
+║                                                                               ║
+║  ⭐ ELITE QB-WR PAIRS (100% Completion on 4th Down):                          ║
+║                                                                               ║
+║     1. T.Tagovailoa → J.Waddle ───► 3/3 │ 47 yds │ 10.36 EPA                  ║
+║     2. J.Goff → J.Gibbs ───────────► 3/3 │ 19 yds │ 9.95 EPA                  ║
+║     3. J.Flacco → A.Cooper ────────► 3/3 │ 38 yds │ 9.81 EPA                  ║
+║     4. A.O'Connell → D.Adams ──────► 3/3 │ 32 yds │ 9.61 EPA                  ║
+║                                                                               ║
+║     💡 Trust proven chemistry in clutch moments                               ║
+║                                                                               ║
+╠═══════════════════════════════════════════════════════════════════════════════╣
+║                                                                               ║
+║  🎯 SEPARATION INSIGHT:                                                       ║
+║                                                                               ║
+║     Completions: 4.20 yards separation                                        ║
+║     Incompletions: 3.83 yards separation                                      ║
+║     Difference: Only 0.37 yards (4.4 inches)                                  ║
+║                                                                               ║
+║     💡 Don't wait for "wide open" - trust timing and anticipation             ║
+║                                                                               ║
+╠═══════════════════════════════════════════════════════════════════════════════╣
+║                                                                               ║
+║  ⏱️ TWO-MINUTE DRILL PRIORITIES:                                             ║
+║                                                                               ║
+║     1. Sideline routes (stop clock + gain yards)                              ║
+║     2. Play action still works (+4.4% completion)                             ║
+║     3. Target Cover 2 Zone if shown                                           ║
+║     4. Have spike/timeout plan ready                                          ║
+║                                                                               ║
+╠═══════════════════════════════════════════════════════════════════════════════╣
+║                                                                               ║
+║  ⚖️ RISK/REWARD FRAMEWORK:                                                   ║
+║                                                                               ║
+║     AGGRESSIVE (Trailing >7):                                                 ║
+║       • Favor high EPA over completion %                                      ║
+║       • Use play action liberally                                             ║
+║       • Attack deep more often                                                ║
+║                                                                               ║
+║     CONSERVATIVE (Leading >7):                                                ║
+║       • Favor completion % over EPA                                           ║
+║       • Short-medium passes                                                   ║
+║       • Protect the ball                                                      ║
+║                                                                               ║
+║     BALANCED (Close game):                                                    ║
+║       • Mix based on down/distance                                            ║
+║       • Trust the data                                                        ║
+║       • Lean on elite pairs                                                   ║
+║                                                                               ║
+╚═══════════════════════════════════════════════════════════════════════════════╝
+
+                    💡 REMEMBER: Data informs, coaches decide 💡

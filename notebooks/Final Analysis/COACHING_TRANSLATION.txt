@@ -1,0 +1,81 @@
+
+╔═══════════════════════════════════════════════════════════════════════════════╗
+║              📢 DATA INSIGHTS → COACHING LANGUAGE TRANSLATION                ║
+╚═══════════════════════════════════════════════════════════════════════════════╝
+
+FROM DATA TO SIDELINE:
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ DATA SAYS: "Cover 2 Zone shows 74.6% completion rate in red zone"           │
+│                                                                             │
+│ COACH SAYS: "When we see two-high in the red zone, we're throwing.          │
+│              Attack the seams between corner and safety. High percentage."  │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ DATA SAYS: "Play action on 4th down: +14.9% completion, +0.840 EPA"         │
+│                                                                             │
+│ COACH SAYS: "On 4th down, fake it. The play-action makes them hesitate.     │
+│              That split second is the difference between a first down       │
+│              and a turnover. Use it every time."                            │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ DATA SAYS: "Separation difference: 4.20 vs 3.83 yards (0.37 yard diff)"     │
+│                                                                             │
+│ COACH SAYS: "Don't wait for receivers to be wide open. Four inches of       │
+│              separation is enough. Trust your timing, trust your arm.       │
+│              Throw them open."                                              │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ DATA SAYS: "Empty formation on 3rd & Long: 0.379 EPA"                       │
+│                                                                             │
+│ COACH SAYS: "Third and long? Go empty. Spread them out. Make them show      │
+│              their hand. Find the mismatch and exploit it."                 │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ DATA SAYS: "T.Tagovailoa → J.Waddle: 100% on 4th down (3/3, 10.36 EPA)"     │
+│                                                                             │
+│ COACH SAYS: "Tua and Waddle are money on fourth down. Three times,          │
+│              three conversions. When we need it, go to what works."         │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ DATA SAYS: "Short passes: 75-82% completion but low EPA"                    │
+│                                                                             │
+│ COACH SAYS: "Short stuff will move the chains, but it won't score           │
+│              touchdowns. Mix in the deep shots. Can't be predictable."      │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ DATA SAYS: "Two-minute drill: Play action +4.4% completion, +0.071 EPA"     │
+│                                                                             │
+│ COACH SAYS: "Even in hurry-up, don't abandon the fake. Defense still        │
+│              respects the run. Use it to our advantage. Get them on         │
+│              their heels."                                                  │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════════════════════
+
+KEY COACHING PRINCIPLES:
+
+1. BE AGGRESSIVE: "Data says attack Cover 2. So we attack Cover 2."
+
+2. TRUST CHEMISTRY: "Some pairs just work. When we see it, we use it."
+
+3. USE PLAY ACTION: "Fake it 'til you make it. Numbers don't lie."
+
+4. MIX DEPTHS: "Keep them guessing. Short to move chains, deep to score."
+
+5. SITUATIONAL AWARENESS: "Every situation is different. But the data shows 
+                          what works. We trust it, but we adapt."
+
+6. TIMING OVER SEPARATION: "Don't wait for wide open. Four inches is enough 
+                           if the timing is right."
+
+7. PRESSURE MOMENTS: "This is when the data matters most. When the game is 
+                     on the line, we go to what works."
+
+═══════════════════════════════════════════════════════════════════════════════
