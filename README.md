@@ -1,5 +1,5 @@
 # NFL Big Data Bowl: From Analytics to Sideline Decisions  
-**Predicting Pass Completion, Player Trajectories & Coaching Decision Aids using Next Gen Stats (2023 Season)**  
+**Calculating Clutch: A Catch-Probability Model for Late-Game Red Zone Passes (2023 Season)**  
 
 ![Python](https://img.shields.io/badge/python-3.9%2B-blue) ![Pandas](https://img.shields.io/badge/pandas-2.1%2B-green) ![PyTorch](https://img.shields.io/badge/PyTorch-2.1%2B-red) ![scikit--learn](https://img.shields.io/badge/scikit--learn-1.3%2B-orange) ![Plotly](https://img.shields.io/badge/plotly-5.0%2B-purple) ![NumPy](https://img.shields.io/badge/numpy-1.24%2B-yellow)
 
