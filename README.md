@@ -239,8 +239,6 @@ Race_to_Ball_Metric_Paper_Updated.docx    # 🔄 UPDATED: Added coaching section
 - "QB-WR Chemistry: Trust in the Clutch" (7 professional tables)
 - Bridges academic research with practical coaching application
 
-```
-
 ## 🔄 Understanding the Project Evolution
 
 ### Original Repository → Enhanced Analysis
@@ -514,7 +512,7 @@ All functions are:
 - ✅ Production-ready (error handling, null checks)
 
 ### Transformer Architecture (Trajectory Model)
-```
+
 Input: [sequence_length, num_players, feature_dim]
   ↓
 Positional Encoding (sinusoidal)
@@ -528,7 +526,7 @@ Feed-Forward Network (d=128, dropout=0.1)
 Linear Projection → (x, y) coordinates
   ↓
 Output: [prediction_horizon, num_players, 2]
-```
+
 
 **Training Details:**
 - Loss: Huber Loss (robust to outliers)
@@ -665,34 +663,31 @@ This project welcomes contributions from:
 
 This project demonstrates that **advanced analytics and practical coaching are not competing philosophies—they're complementary forces**. By transforming 4.5 million tracking frames into actionable sideline decisions, we've built a bridge between:
 
-- **Data scientists** who discover patterns  
-- **Coaches** who make split-second calls  
-- **Players** who execute with confidence  
+- **Data scientists** who discover patterns 
+- **Coaches** who make split-second calls 
+- **Players** who execute with confidence 
 
 The result: **Measurable improvements in completion rate, EPA, and game outcomes**.
 
 ### Project Success Metrics
-✅ **140+ engineered features** from raw tracking data  
-✅ **78.4% completion prediction accuracy** (XGBoost)  
-✅ **1.8-yard trajectory prediction** (Transformer ADE)  
-✅ **38 analysis files** covering every high-leverage situation  
-✅ **8 notebooks** from EDA to coaching decision aids  
-✅ **6 sideline-ready visualizations** for game-day use  
-✅ **3 coaching guides** in print-friendly format  
+✅ **140+ engineered features** from raw tracking data 
+✅ **78.4% completion prediction accuracy** (XGBoost) 
+✅ **1.8-yard trajectory prediction** (Transformer ADE) 
+✅ **38 analysis files** covering every high-leverage situation 
+✅ **8 notebooks** from EDA to coaching decision aids 
+✅ **6 sideline-ready visualizations** for game-day use 
+✅ **3 coaching guides** in print-friendly format 
 
 ### The Bottom Line
 When **Aidan O'Connell drops back on 4th & 3**, facing Cover 2 Zone, in Singleback formation with play action called, and he sees **Davante Adams** breaking open at 2.8 yards separation...
 
-**This system says: THROW IT.**  
-(3/3 completions, +3.20 EPA in this exact scenario)
+**This system says: THROW IT.** (3/3 completions, +3.20 EPA in this exact scenario)
 
 That's not just analytics. **That's trust backed by data.**
 
 ---
 
-*Built with precision. Delivered with purpose.*  
-**— Jonah Zembower, Brady Nolin, Alon Stein / Carnegie Mellon Heinz Sports Analytics**  
-December 17, 2025
+*Built with precision. Delivered with purpose.* **— Jonah Zembower, Brady Nolin, Alon Stein / Carnegie Mellon Heinz Sports Analytics** December 17, 2025
 
 ---
 
