@@ -60,15 +60,22 @@ We utilized a multi-stage approach to predict play outcomes:
 | :--- | :--- | :--- |
 | **`notebooks/`** | | |
 | `08_Final_Sideline_Suggestions.ipynb` | **Master Dashboard.** The interactive decision matrix and summary. | 🧢 Coach |
-| `Redzone.ipynb` | Deep dive into Red Zone EPA, completion, and "Perfect Pairs". | 🧢 Coach |
-| `Two_Minute Drill.ipynb` | Analysis of clock management and hurry-up coverage exploits. | 🧢 Coach |
-| `Coaching.ipynb` | General decision-making framework (4th Down, Play Action). | 🧢 Coach |
 | `01_eda.ipynb` | Data dictionary, distribution analysis, and quality checks. | 💻 Data Sci |
 | `02_features.ipynb` | Engineering of 140+ features (physics, situation, spacing). | 💻 Data Sci |
 | `03_modeling_route.ipynb` | PyTorch implementation for route trajectory modeling. | 💻 Data Sci |
 | `04_modeling_completions.ipynb` | ML classifiers (XGBoost/RF) for catch probability. | 💻 Data Sci |
+| `05_storytelling_two_minute_drill.ipynb` | Overview analysis into clock management and dashboards of data. | 💻 Data Sci & 🧢 Coach|
+| `06_storytelling_redzone.ipynb` | Overview analysis into redzone locations and dashboards of data. | 💻 Data Sci & 🧢 Coach|
+| `07_storytelling_coach_decision_making.ipynb` | Overview analysis and dashboards of completion percentage scenarios. | 💻 Data Sci & 🧢 Coach|
 | **`src/`** | | |
 | `feature_engineering.py` | Production-ready scripts for feature extraction. | 💻 Data Sci |
+| **`specific analysis/`** | | |
+| `Redzone.ipynb` | Deep dive into Red Zone EPA, completion, and "Perfect Pairs". | 🧢 Coach |
+| `Two_Minute Drill.ipynb` | Analysis of clock management and hurry-up coverage exploits. | 🧢 Coach |
+| `Coaching.ipynb` | General decision-making framework (4th Down, Play Action). | 🧢 Coach |
+| `*.py` | Python scripts analysis of data for notebooks to use later. | 💻 Data Sci |
+| **`visualizations/`** | | |
+| `*.png` | Multiple EDA visualizations to understand the data for modeling purposes. | 💻 Data Sci & 🧢 Coach|
 
 ---
 
