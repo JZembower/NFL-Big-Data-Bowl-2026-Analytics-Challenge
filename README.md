@@ -59,7 +59,6 @@ We utilized a multi-stage approach to predict play outcomes:
 | Directory / File | Description | Audience |
 | :--- | :--- | :--- |
 | **`notebooks/`** | | |
-| `08_Final_Sideline_Suggestions.ipynb` | **Master Dashboard.** The interactive decision matrix and summary. | 🧢 Coach |
 | `01_eda.ipynb` | Data dictionary, distribution analysis, and quality checks. | 💻 Data Sci |
 | `02_features.ipynb` | Engineering of 140+ features (physics, situation, spacing). | 💻 Data Sci |
 | `03_modeling_route.ipynb` | PyTorch implementation for route trajectory modeling. | 💻 Data Sci |
@@ -67,6 +66,7 @@ We utilized a multi-stage approach to predict play outcomes:
 | `05_storytelling_two_minute_drill.ipynb` | Overview analysis into clock management and dashboards of data. | 💻 Data Sci & 🧢 Coach|
 | `06_storytelling_redzone.ipynb` | Overview analysis into redzone locations and dashboards of data. | 💻 Data Sci & 🧢 Coach|
 | `07_storytelling_coach_decision_making.ipynb` | Overview analysis and dashboards of completion percentage scenarios. | 💻 Data Sci & 🧢 Coach|
+| `08_Final_Sideline_Suggestions.ipynb` | **Master Dashboard.** The interactive decision matrix and summary. | 🧢 Coach |
 | **`src/`** | | |
 | `feature_engineering.py` | Production-ready scripts for feature extraction. | 💻 Data Sci |
 | **`specific analysis/`** | | |
