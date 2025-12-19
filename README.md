@@ -92,4 +92,4 @@ We utilized a multi-stage approach to predict play outcomes:
 
 ---
 
-*Built by Jonah Zembower, Brady Nolin, Alon Stein | Carnegie Mellon Heinz Sports Analytics | Dec 2025*
+*Built by Jonah Zembower, Brady Nolin, Alon Stein | Carnegie Mellon University Heinz Sports Analytics | Dec 2025*
