@@ -4,7 +4,7 @@
 # Datasets processed
 data/processed
 data/splits
-data/.DS_store
+data/.DS_Store
 
 # Checkpoints
 checkpoints
