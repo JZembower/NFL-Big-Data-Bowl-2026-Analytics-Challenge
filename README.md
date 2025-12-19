@@ -311,7 +311,7 @@ This project transforms analytics from **"analyst reporting stats"** to **"assis
 
 ### 1. Situation-Specific Playbooks
 - **3rd & Long**: Empty formation + Man-beating routes (60% success vs zone's 72%)
-- **4th & Short**: Singleback + Play Action = 0.852 EPA
+- **4th & Short**: Singleback = 0.852 EPA
 - **Red Zone**: Target elite chemistry pairs, exploit Cover 3 Zone (68% completion)
 - **Two-Minute Drill**: Shotgun formation, sideline routes, 0.321 EPA
 - **Goal Line**: High-separation concepts, trust proven QB-WR pairs
